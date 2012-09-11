@@ -1,0 +1,27 @@
+@charset "utf-8";
+#icon-ichigen-san {
+	background-image: url('../images/icon/icons32.png');
+}
+
+li.toplevel_page_ichigen-san div.wp-menu-image {
+	background-image: url('../images/icon/menu.png');
+}
+li.toplevel_page_ichigen-san:hover div.wp-menu-image,
+li.current.toplevel_page_ichigen-san div.wp-menu-image {
+	background-position: 0 -28px;
+}
+li.toplevel_page_ichigen-san div.wp-menu-image img {
+	display: none;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) {
+	#icon-ichigen-san {
+		background-image: url('../images/icon/icons32-2x.png');
+		background-size: 32px 32px;
+	}
+
+	li.toplevel_page_ichigen-san div.wp-menu-image {
+		background-image: url('../images/icon/menu-2x.png');
+		background-size: 28px 56px;
+	}
+}
