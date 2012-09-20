@@ -4,7 +4,7 @@ Donate link:
 Tags: Private, Maintenance
 Requires at least: 3.4
 Tested up to: 3.4
-Stable tag: 0.7.1.0
+Stable tag: 0.1
 
 Private publishing and maintenance
 
