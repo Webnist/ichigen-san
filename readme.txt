@@ -14,5 +14,4 @@ Private publishing and maintenance
 == Installation ==
 1. Upload the entire `ichigen-san` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Ichigen-San is enabled from the set Ichigen-San screen
 
