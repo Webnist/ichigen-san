@@ -24,3 +24,14 @@ Stable tag: 0.1
 1. `ichigen-san` フォルダーを `/wp-content/plugins/` アップロード。
 2. プラグインメニューより有効化。
 
+== Upgrade Notice ==
+
+Version 0.1.7 メンテナンスページの追加
+
+== Changelog ==
+
+= 0.1.7 =
+* メンテナンスページの追加
+
+= 0.1 =
+* 最初のバージョン

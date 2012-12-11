@@ -24,3 +24,14 @@ Speaking of "Ichigen-San Okotowari", the first person not related at all to the 
 1. Upload the entire `ichigen-san` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 
+== Upgrade Notice ==
+
+Version 0.1.7 Additional maintenance page
+
+== Changelog ==
+
+= 0.1.7 =
+* Additional maintenance page
+
+= 0.1 =
+* First version

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ichigen San\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-11 19:29+0900\n"
-"PO-Revision-Date: 2012-09-11 19:29+0900\n"
+"POT-Creation-Date: 2012-12-10 18:19+0900\n"
+"PO-Revision-Date: 2012-12-10 18:21+0900\n"
 "Last-Translator: Webnist <webnist@webnist.org>\n"
 "Language-Team: Webnist <webnist@webnist.org>\n"
 "MIME-Version: 1.0\n"
@@ -23,6 +23,34 @@ msgstr "一見さん設定"
 msgid "Enabling Ichogen San"
 msgstr "一見さんを有効化する"
 
-#: ichigen-san.php:75
+#: ichigen-san.php:69
+msgid "To allow the feed"
+msgstr "一見さん有効時、Feedのアクセスを許可。"
+
+#: ichigen-san.php:70
+msgid "To set up maintenance page"
+msgstr "メンテナンスページの設定"
+
+#: ichigen-san.php:71
+msgid "Maintenance page title"
+msgstr "メンテナンスのタイトル"
+
+#: ichigen-san.php:72
+msgid "Maintenance page text"
+msgstr "メンテナンスページのコンテンツ"
+
+#: ichigen-san.php:80 ichigen-san.php:95
 msgid "Enabling"
 msgstr "有効化"
+
+#: ichigen-san.php:88
+msgid "Allow feed"
+msgstr "フィードを許可"
+
+#: ichigen-san.php:100
+msgid "Maintenance"
+msgstr "メンテナンス"
+
+#: ichigen-san.php:106
+msgid "It is currently undergoing maintenance"
+msgstr "只今、メンテナンス中です。"
