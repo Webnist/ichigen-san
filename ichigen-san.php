@@ -45,7 +45,7 @@ class Ichigen_San {
 	}
 
 	public function admin_menu() {
-		add_menu_page( __( 'Set Ichigen San', ICHIGEN_SAN_DOMAIN ), __( 'Set Ichigen San', ICHIGEN_SAN_DOMAIN ), 'add_users', $this->menu_slug, array( &$this, 'add_admin_edit_page' ) );
+		add_menu_page( __( 'Set Ichigen San', ICHIGEN_SAN_DOMAIN ), __( 'Set Ichigen San', ICHIGEN_SAN_DOMAIN ), 'add_users', $this->menu_slug, array( &$this, 'add_admin_edit_page' ), $this->plugin_url . '/images/icon/menu.png' );
 	}
 
 	public function add_admin_edit_page() {
