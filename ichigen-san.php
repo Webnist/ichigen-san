@@ -4,7 +4,7 @@ Plugin Name: Ichigen San
 Plugin URI: http://plugins.webnist.jp
 Description:
 Author: Webnist
-Version: 0.1.7
+Version: 0.2
 Author URI: http://webni.st
 */
 
@@ -21,7 +21,7 @@ new Ichigen_San();
 
 class Ichigen_San {
 
-	private $version = '0.1.7';
+	private $version = '0.2';
 	private $base_dir;
 	private $plugin_dir;
 	private $plugin_url;
@@ -45,7 +45,7 @@ class Ichigen_San {
 	}
 
 	public function admin_menu() {
-		add_menu_page( __( 'Set Ichigen San', ICHIGEN_SAN_DOMAIN ), __( 'Set Ichigen San', ICHIGEN_SAN_DOMAIN ), 'add_users', $this->menu_slug, array( &$this, 'add_admin_edit_page' ), $this->plugin_url . '/images/icon/menu.png' );
+		add_menu_page( __( 'Set Ichigen San', ICHIGEN_SAN_DOMAIN ), __( 'Set Ichigen San', ICHIGEN_SAN_DOMAIN ), 'add_users', $this->menu_slug, array( &$this, 'add_admin_edit_page' ) );
 	}
 
 	public function add_admin_edit_page() {
@@ -66,117 +66,111 @@ class Ichigen_San {
 
 	public function add_general_custom_fields() {
 		add_settings_field( 'enabling', __( 'Enabling Ichogen San', ICHIGEN_SAN_DOMAIN ), array( &$this, 'enabling_field' ), $this->menu_slug, 'default' );
-		add_settings_field( 'feed', __( 'To allow the feed', ICHIGEN_SAN_DOMAIN ), array( &$this, 'allow_feed_field' ), $this->menu_slug, 'default' );
-		add_settings_field( 'maintenance_enabling', __( 'To set up maintenance page', ICHIGEN_SAN_DOMAIN ), array( &$this, 'maintenance_enabling_field' ), $this->menu_slug, 'default' );
-		add_settings_field( 'maintenance_title', __( 'Maintenance page title', ICHIGEN_SAN_DOMAIN ), array( &$this, 'maintenance_title_field' ), $this->menu_slug, 'default' );
-		add_settings_field( 'maintenance_text', __( 'Maintenance page text', ICHIGEN_SAN_DOMAIN ), array( &$this, 'maintenance_text_field' ), $this->menu_slug, 'default' );
-		//add_settings_field( 'maintenance_date', __( 'Maintenance page date', ICHIGEN_SAN_DOMAIN ), array( &$this, 'maintenance_date_field' ), $this->menu_slug, 'default' );
+		add_settings_field( 'ichigen_san_page', __( 'Page Setting', ICHIGEN_SAN_DOMAIN ), array( &$this, 'page_field' ), $this->menu_slug, 'default' );
+		add_settings_field( 'ichigen_san_user', __( 'Basic User', ICHIGEN_SAN_DOMAIN ), array( &$this, 'user_field' ), $this->menu_slug, 'default' );
+		add_settings_field( 'ichigen_san_pass', __( 'Basic Password', ICHIGEN_SAN_DOMAIN ), array( &$this, 'pass_field' ), $this->menu_slug, 'default' );
 	}
 
 	public function enabling_field( $args ) {
 		extract( $args );
 		$value = get_option( 'ichigen_san_enabling' );
 ?>
-		<label><input type="checkbox" name="ichigen_san_enabling" value="1" id="ichigen_san_enabling"<?php checked( 1, $value ); ?> /><?php _e( 'Enabling', ICHIGEN_SAN_DOMAIN ); ?></label>
+		<label>
+			<select name="ichigen_san_enabling" id="ichigen_san_enabling">
+				<option value="0"<?php selected( $value, 0, true ); ?>><?php _e( 'Disabled', ICHIGEN_SAN_DOMAIN ); ?></option>
+				<option value="1"<?php selected( $value, 1, true ); ?>><?php _e( 'Login screen', ICHIGEN_SAN_DOMAIN ); ?></option>
+				<option value="2"<?php selected( $value, 2, true ); ?>><?php _e( 'Basic authentication', ICHIGEN_SAN_DOMAIN ); ?></option>
+			</select>
+		</label>
 	<?php
 	}
 
-	public function allow_feed_field( $args ) {
+	public function page_field( $args ) {
 		extract( $args );
-		$value = get_option( 'ichigen_san_allow_feed' );
+		$value = get_option( 'ichigen_san_page' );
 ?>
-		<label><input type="checkbox" name="ichigen_san_allow_feed" value="1" id="ichigen_san_allow_feed"<?php checked( 1, $value ); ?> /><?php _e( 'Allow feed', ICHIGEN_SAN_DOMAIN ); ?></label>
+		<label>
+			<textarea name="ichigen_san_page" id="ichigen_san_page"><?php echo $value; ?></textarea>
+		</label>
 	<?php
 	}
-	public function maintenance_enabling_field( $args ) {
+
+	public function user_field( $args ) {
 		extract( $args );
-		$value = get_option( 'ichigen_san_maintenance_enabling' );
+		$value = get_option( 'ichigen_san_user' );
 ?>
-		<label><input type="checkbox" name="ichigen_san_maintenance_enabling" value="1" id="ichigen_san_maintenance_enabling"<?php checked( 1, $value ); ?> /><?php _e( 'Enabling', ICHIGEN_SAN_DOMAIN ); ?></label>
+		<label>
+			<input type="text" name="ichigen_san_user" id="ichigen_san_user" value="<?php echo $value; ?>"></input>
+		</label>
 	<?php
 	}
-	public function maintenance_title_field( $args ) {
+	public function pass_field( $args ) {
 		extract( $args );
-		$value = get_option( 'ichigen_san_maintenance_title' ) ? get_option( 'ichigen_san_maintenance_title' ) : __( 'Maintenance', 'ichigen_san' ); ?>
-		<label><input type="text" name="ichigen_san_maintenance_title" value="<?php echo $value; ?>" id="ichigen_san_maintenance_title" /></label>
-	<?php
-	}
-	public function maintenance_text_field( $args ) {
-		extract( $args );
-		$value = get_option( 'ichigen_san_maintenance_text' ) ? get_option( 'ichigen_san_maintenance_text' ) : __( 'It is currently undergoing maintenance', 'ichigen_san' );
+		$value = get_option( 'ichigen_san_pass' );
 ?>
-		<label><?php wp_editor( $value, 'ichigen_san_maintenance_text' ); ?></label>
+		<label>
+			<input type="password" name="ichigen_san_pass" id="ichigen_san_pass"></input>
+		</label>
 	<?php
 	}
-	public function maintenance_date_field( $args ) {
-		extract( $args );
-		$value = get_option( 'ichigen_san_maintenance_date' ) ? get_option( 'ichigen_san_maintenance_date' ) : date_i18n( 'Y/m/d' ) ;
-?>
-		<label><input type="text" name="ichigen_san_maintenance_date" value="<?php echo $value; ?>" id="ichigen_san_maintenance_date" /></label>
-	<?php
-	}
+
 
 	public function add_custom_whitelist_options_fields() {
-		register_setting( $this->menu_slug, 'ichigen_san_enabling' );
-		register_setting( $this->menu_slug, 'ichigen_san_allow_feed' );
-		register_setting( $this->menu_slug, 'ichigen_san_maintenance_enabling', array( &$this, 'add_maintenance' ) );
-		register_setting( $this->menu_slug, 'ichigen_san_maintenance_title' );
-		register_setting( $this->menu_slug, 'ichigen_san_maintenance_text' );
-		//register_setting( $this->menu_slug, 'ichigen_san_maintenance_date' );
-	}
-
-	public function add_maintenance() {
-		$value = isset( $_POST['ichigen_san_maintenance_enabling'] ) ? $_POST['ichigen_san_maintenance_enabling'] : null;
-		if ( $value ) {
-			$title = isset( $_POST['ichigen_san_maintenance_title'] ) ? $_POST['ichigen_san_maintenance_title'] : null;
-			$text = isset( $_POST['ichigen_san_maintenance_text'] ) ? $_POST['ichigen_san_maintenance_text'] : null;
-			$date = isset( $_POST['ichigen_san_maintenance_date'] ) ? $_POST['ichigen_san_maintenance_date'] : null;
-			$id = get_option( 'ichigen_san_maintenance_id' ) ? get_option( 'ichigen_san_maintenance_id' ) : null;
-			$args = array(
-				'ID' => $id,
-				'post_content' => esc_html( stripslashes( $text ) ),
-				'post_title' => esc_html( stripslashes( $title ) ),
-				'post_status' => 'publish', 
-				'post_name' => 'maintenance',
-				'menu_order' => 9999,
-				'post_type' => 'page',
-			);
-			if ( $id ) {
-				wp_update_post( $args );
-			} else {
-				$id = wp_insert_post( $args );
-				update_option( 'ichigen_san_maintenance_id', $id );
-			}
-		} else {
-			$id = get_option( 'ichigen_san_maintenance_id' ) ? get_option( 'ichigen_san_maintenance_id' ) : null;
-			$args = array(
-				'ID' => $id,
-				'post_status' => 'draft', 
-			);
-			wp_update_post( $args );
-		}
-		return $value;
+		register_setting( $this->menu_slug, 'ichigen_san_enabling', 'intval' );
+		register_setting( $this->menu_slug, 'ichigen_san_page' );
+		register_setting( $this->menu_slug, 'ichigen_san_user' );
+		register_setting( $this->menu_slug, 'ichigen_san_pass', 'wp_hash_password' );
 	}
 
 	public function admin_styles() {
 		wp_enqueue_style( 'admin_ichigen_san_style', $this->plugin_url . '/css/admin-style.css' );
 	}
 
-	public function redirect_ichigen_san() {
-		if ( get_option( 'ichigen_san_allow_feed' ) && is_feed() )
-			return;
-
-		if ( !is_user_logged_in() && get_option( 'ichigen_san_maintenance_enabling' ) ) {
-			$maintenance_id = get_option( 'ichigen_san_maintenance_id' );
-			if ( !is_page( $maintenance_id ) ) {
-				$maintenance_id = get_option( 'ichigen_san_maintenance_id' );
-				$redirect_url = get_permalink( $maintenance_id );
-				wp_redirect( $redirect_url );
-				exit();
+	public function check_ichigen_san_page() {
+		$values = get_option( 'ichigen_san_page' );
+		if ( $values ) {
+			$values = explode("\n", $values);
+			$values = array_map('trim', $values);
+			$values = array_filter($values, 'strlen');
+			$values = array_values($values);
+			$page_url_get = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+			$search_url = array('index.php');
+			$url = str_replace($search_url,'',$page_url_get);
+			$count = 0;
+			foreach( $values as $value ) {
+				if( stristr( $url, $value) ) {
+					return TRUE;
+				}
+				$count++;
 			}
-		} elseif ( !is_user_logged_in() && get_option( 'ichigen_san_enabling' ) ) {
-			auth_redirect();
+		} else {
+			return TRUE;
 		}
 	}
+	public function redirect_ichigen_san() {
+		if ( !is_user_logged_in() && get_option( 'ichigen_san_enabling' ) == 1 && $this->check_ichigen_san_page() ) {
+			auth_redirect();
+		} elseif ( !is_user_logged_in() && get_option( 'ichigen_san_enabling' ) == 2 && $this->check_ichigen_san_page() ) {
+			nocache_headers();
+			// WordPress のユーザー認証で BASIC 認証ユーザー/パスワードをチェック
+			$user = isset($_SERVER["PHP_AUTH_USER"]) ? $_SERVER["PHP_AUTH_USER"] : '';
+			$pwd  = isset($_SERVER["PHP_AUTH_PW"]) ? $_SERVER["PHP_AUTH_PW"] : '';
+			if ( get_option( 'ichigen_san_user' ) && get_option( 'ichigen_san_pass' ) ) {
+				if ( $user == get_option( 'ichigen_san_user' ) && wp_check_password( $pwd, get_option( 'ichigen_san_pass' ) ) ) {
+					return;
+				}
+			}
+			if ( !is_wp_error(wp_authenticate($user, $pwd)) ) {
+				return;
+			}
 
+			// BASIC 認証が必要
+			header('WWW-Authenticate: Basic realm="Please Enter Your Password"');
+			header('HTTP/1.0 401 Unauthorized');
+			echo 'Authorization Required';
+			die();
+		} else {
+			return;
+		}
+	}
 }
