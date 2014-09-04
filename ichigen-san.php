@@ -33,9 +33,9 @@ class IchigenSan {
 		$this->version         = $data['ver'];
 		$this->domain          = $data['domain'];
 		$this->langs           = $data['langs'];
-		$this->enabling   = get_option( 'ichigen_san_enabling', 0 );
-		$this->basic_user = get_option( 'ichigen_san_basic_user' );
-		$this->basic_pass = get_option( 'ichigen_san_basic_pass' );
+		$this->enabling        = get_option( 'ichigen_san_enabling', 0 );
+		$this->basic_user      = get_option( 'ichigen_san_basic_user' );
+		$this->basic_pass      = get_option( 'ichigen_san_basic_pass' );
 
 		load_plugin_textdomain( $this->domain, false, $this->plugin_basename . $this->langs );
 		add_action( 'template_redirect', array( &$this, 'template_redirect' ) );
@@ -48,7 +48,7 @@ class IchigenSan {
 	}
 
 	public function admin_print_scripts() {
-		wp_enqueue_style( 'admin_ichigen_san', ICHIGEN_SAN_PLUGIN_URL . '/css/admin-style.css' );
+		wp_enqueue_script( 'admin_ichigen_san', ICHIGEN_SAN_PLUGIN_URL . '/js/ichigen-san.js', array( 'jquery' ), $this->version, true );
 	}
 
 	public function admin_menu() {
