@@ -195,9 +195,9 @@ class IchigenSan {
 	}
 
 	public function template_redirect() {
-		if ( !is_user_logged_in() && $this->enabling === 1 ) {
+		if ( !is_user_logged_in() && $this->enabling == 1 ) {
 			auth_redirect();
-		} elseif ( !is_user_logged_in() && $this->enabling === 2 ) {
+		} elseif ( !is_user_logged_in() && $this->enabling == 2 ) {
 			nocache_headers();
 			// Check the BASIC authentication user and password
 			$user = isset($_SERVER["PHP_AUTH_USER"]) ? $_SERVER["PHP_AUTH_USER"] : '';

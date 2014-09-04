@@ -1,12 +1,13 @@
-=== Plugin Name ===
+=== Ichigen San ===
 Contributors: Webnist, megumithemes
-Donate link: 
+Donate link:
 Tags: Private, Maintenance
 Requires at least: 3.4
-Tested up to: 3.4
-Stable tag: 0.1
+Tested up to: 3.9.2
+Stable tag: 0.3
+License: GPLv2 or later
 
-プラーベート用やメンテナンス用
+プラーベート用
 
 == Description ==
 このプラグインを有効化するとログインしなければ閲覧することが出来ないため、
@@ -15,6 +16,8 @@ Stable tag: 0.1
 
 あなたが、制作者の場合デモでサイトを作った場合BASIC認証をかける場合がありますが、それはスマートではありません。
 このプラグインを使用すれば煩わしい、BASIC認証ともさよならできます。
+
+ごめんなさい、今回のバージョンで BASIC認証をサポートしました。
 
 プラグインの由来について。
 日本には”Ichigen-San Okotowari”という文化があります。
@@ -25,13 +28,13 @@ Stable tag: 0.1
 2. プラグインメニューより有効化。
 
 == Upgrade Notice ==
-
-Version 0.1.7 メンテナンスページの追加
+BASIC認証を選択できるようになりました。
 
 == Changelog ==
 
-= 0.1.7 =
-* メンテナンスページの追加
+= 0.3 =
+* BASIC認証を選択できるようになりました。
+* オプションページを、設定の中に移動
 
 = 0.1 =
 * 最初のバージョン
