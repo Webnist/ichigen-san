@@ -10,23 +10,23 @@ License: GPLv2 or later
 Private publishing
 
 == Description ==
-Because you can not be viewed unless you log When you activate this plug-in,
-You can start a private blog.
-Furthermore, you can also be used for communication between the acquaintance.
+If you would like to start a private blog, you just have to activate this plugin. 
+This plugin version protects your posts either by:
 
-You, there is a case to put the BASIC authentication if you create a site with demonstration case of the author, it is not smart.
-Troublesome if you use this plugin, you can also authenticate goodbye BASIC.
+1. Log in Screen - where users have to login to view your posts 
+or
+2. Basic Authentication - the author sets the username and the password that users have to use before reading your posts. 
 
-Sorry, this version was support BASIC authentication.
+You can disable the plugin when you wish to make all your posts public. 
 
-About the origin of the plug-in.
-There is a culture of "Ichigen-San Okotowari" in Japan.
-Speaking of "Ichigen-San Okotowari", the first person not related at all to the shop is meant to be refused to enter the shop. To enter into such stores must be some referrals from persons acquainted with the shop.
+About the origin of the plugin:
+There is an "Ichigen-San Okotowari" culture in Japan.
+"Ichigen-San Okotowari" is a formal and traditional custom of Japan where the first person not related at all to the shop is meant to be refused to enter it. To enter into such stores, there must be some referrals from persons acquainted with the shop.
 
 == Installation ==
-A plug-in installation screen is displayed on the WordPress admin panel.
-It installs it in `wp-content/plugins`.
-The plug-in is made effective.
+A plugin installation screen is displayed on the WordPress admin panel.
+Install it in `wp-content/plugins`.
+The plugin is made effective.
 Open \'Settings\' -> \'Set Ichigen San\' menu.
 
 == Upgrade Notice ==
