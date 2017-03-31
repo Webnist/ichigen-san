@@ -1,2 +1,2 @@
 plugin-master = webnist <webnist@webnist.org>
-sudar = Webnist <webnist@webnist.org>
+webnist = Webnist <webnist@webnist.org>
