@@ -6,6 +6,7 @@ Tested up to: 3.9.2
 Stable tag: 0.3
 License: GPLv2 or later
 
+
 Private publishing
 
 == Description ==
