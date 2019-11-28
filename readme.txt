@@ -1,6 +1,5 @@
 === Ichigen San ===
 Contributors: Webnist, megumithemes
-Donate link:
 Tags: Private, Maintenance
 Requires at least: 3.4
 Tested up to: 3.9.2
