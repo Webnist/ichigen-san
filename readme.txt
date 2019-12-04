@@ -20,7 +20,8 @@ Sorry, this version was support BASIC authentication.
 
 About the origin of the plug-in.
 There is a culture of "Ichigen-San Okotowari" in Japan.
-Speaking of "Ichigen-San Okotowari", the first person not related at all to the shop is meant to be refused to enter the shop. To enter into such stores must be some referrals from persons acquainted with the shop.
+Speaking of "Ichigen-San Okotowari", the first person not related at all to the shop is meant to be refused to enter the shop.
+To enter into such stores must be some referrals from persons acquainted with the shop.
 
 == Installation ==
 A plug-in installation screen is displayed on the WordPress admin panel.
